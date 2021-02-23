@@ -4,6 +4,8 @@ This project was developed under the guidance of ISRO at the finale of the Smart
  
 The original dataset of geotiff images, as well as most of the processed images have been removed from the repository, bar a few images used for representational purposes. Those seeking to replicate the repository can access and download the INSAT-3D images at [https://www.mosdac.gov.in/](https://www.mosdac.gov.in/).
 
+For more information on INSAT 3-D and its products visit [here](https://www.isro.gov.in/Spacecraft/insat-3d) or refer to the manual [here](https://mosdac.gov.in/data/Missions/docs/INSAT3D_Products.pdf).
+
  
  
  <img src = "https://github.com/manandoshi1607/NM373_ParyavaranAI/blob/master/docs/isro.jpg" height="400" width="600">
