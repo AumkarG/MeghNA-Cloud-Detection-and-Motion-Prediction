@@ -1,0 +1,132 @@
+/* ---- reset ---- */
+body {
+  margin: 0;
+}
+canvas {
+  display: block;
+  vertical-align: bottom;
+}
+/* ---- particles.js container ---- */
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background:url(images/cloud.png);
+  animation: animate 100s linear infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@keyframes animate
+{
+    0%
+    {
+        background-position: 0px;
+    }
+    100%
+    {
+        background-position:5440px;
+    }
+}
+.particles-js-canvas-el{
+  position: absolute;
+}
+#rheah1{
+  color: white;
+  font-family: "Allerta Stencil", Sans-serif;
+  font-size: 200px;
+  font-style: oblique;
+  display: none;
+}
+.logo
+{
+  display: none;
+  margin-left: 135px;
+  margin-right: auto;
+  height: 400px;
+  padding-top: 50px;
+}
+#industries{
+  display:none;
+  margin-left: 135px;
+  margin-right: auto;
+  padding-top:50px;
+  height:400px;
+}
+#rheap1{
+  color: #00FFFF;
+  font-family: "Allerta Stencil", Sans-serif;
+  font-size: 30px;
+  font-style: normal;
+  display: none;
+  padding-top: 0%;
+}
+#overview{
+  color: white;
+  font-family: "Allerta Stencil", Sans-serif;
+  font-size: 100px;
+  font-style: normal;
+  display: none;
+}
+#features,#impact,#team{
+  color: white;
+  font-family: "Allerta Stencil", Sans-serif;
+  font-size: 100px;
+  font-style: normal;
+  display: none;
+}
+#fheader,#iheader{
+  color: white;
+  font-family: "Allerta Stencil", Sans-serif;
+  font-size: 35px;
+  font-style: normal;
+  display: none;
+}
+#theader{
+  color: white;
+  font-family: "Allerta Stencil", Sans-serif;
+  font-size: 35px;
+  font-style: normal;
+}
+#ovlist{
+  color: white;
+  font-family: "Allerta Stencil", Sans-serif;
+  font-size: 30px;
+  font-style: normal;
+  /* display: none; */
+}
+#ov1,#ov2,#ov3,#ov4,#ov5{
+  display: none;
+}
+#parth,#shloka,#manan,#jimil,#aumkar,#anish{
+  margin-right: auto;
+  margin-left: auto;
+  height: 200px;
+  width:200px;
+  display:none;
+}
+#pjname,#ssname,#adname,#mdname,#jsname,#agname{
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Allerta Stencil", Sans-serif;
+  display: none;
+}
+#ovlist:before {
+  content: "\25BA \0020";
+  position: absolute;
+  top: 5px;
+  left: -10px;
+}
+nav a:hover{
+  color:red;
+}
+.navbar a{
+  color: white;
+}
+.navbar
+ { 
+   margin-bottom: 0px;
+   background-color: black !important;
+   font-size: 20px;
+   }
+

@@ -1,0 +1,190 @@
+<app-navbar>
+
+</app-navbar>
+<div class="container-fluid">
+    <br/>
+    <!-- Spinner Code -->
+    <ngx-spinner bdOpacity = 0.9 bdColor = "#333" size = "medium" color = "#fff" type = "square-jelly-box"
+    [fullScreen] = "true">
+      <p style="color: white" >Processing your image</p>
+    </ngx-spinner>
+    <div class="card shadow p-3 mb-5 bg-white rounded" *ngIf="showWorkFlow1==true">
+      <!-- ROW 1: Title Row -->
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+          <h2 style="text-align: center;">Cloud Analytics</h2>
+          <h6 style="text-align: center;">Using K-Means for Detection and Mean Path Adjustment for Motion Prediction</h6>
+          <p style="text-align: center;">Cloud Playground: {{cloudTifPath}}</p>
+          <hr/>
+        </div>
+      </div>
+      <!-- ROW 2: Select Cloud Detection Algorithm -->
+      <!-- <div class="row">
+        <div class="col-md-12 col-sm-12">
+          <label>
+            Select the detection algorithm you want to visualize:
+          </label>
+          <select [(ngModel)]="detectionAlgorithm" class="form-control" id="detectionAlgorithm" name="detectionAlgorithm" (ngModelChange)="selectDetectionAlgo()">
+            <option ngValue="kmeans.png">K-Means</option>
+            <option ngValue="mask_rcnn.png">Mask RCNN</option>
+          </select>
+        </div>
+      </div>
+      <br/> -->
+      <!-- ROW 3: Data -->
+      <div class="row">
+        <!-- COLUMN 1: Display Image -->
+        <div class="col-md-5 col-sm-12" id="canvasDiv">
+          <p class="card-body">
+            <span>
+              Clouds detected in the image by the K-Means algorithm are displayed below. Click on any location
+              on the canvas to explore features related to that pixel.
+            </span>
+          </p>
+          <canvas id="myCanvas"></canvas>
+        </div>
+        <div class="col-md-5 col-sm-6" style="padding-left: 40px;">
+          <div class="row">
+            <p class="card-text">
+              In the table below, you can find a summary of the three clouds detected in the image. This summary is augmented
+              with the predicted motion of all the three clouds as shown by the location in the <strong>Predicted CoM Co-ordinates</strong> column.
+            </p>
+            <table class="table table-bordered table-striped">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col" style="text-align: center;">Colour</th>
+                  <th scope="col" style="text-align: center;">Cloud</th>
+                  <th scope="col" style="text-align: center;">CoM Co-ordinates</th>
+                  <th scope="col" style="text-align: center;">Type</th>
+                  <th scope="col" style="text-align: center;">Predicted CoM Co-ordinates</th>
+                  <th scope="col" style="text-align: center;">Error</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let output of data; let i = index">
+                  <td *ngIf="i==0" style="background-color: #5C5C5C;">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                  <td *ngIf="i==1" style="background-color: #7B7B7B;">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                  <td *ngIf="i==2" style="background-color: #B6B6B6;">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                  <td scope="row">{{output[0]}}</td>
+                  <td>({{output[1]}},{{output[2]}})</td>
+                  <td>{{output[3]}}</td>
+                  <td>({{output[4]}},{{output[5]}})</td>
+                  <td>{{output[6]}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <br/>
+          <div class="row">
+            <p>{{cloudTifPath}} Metadata: </p>
+            <table class="table table-bordered table-striped">
+              <thead class="thead-dark">
+                <tr>
+                  <th colspan="2" style="text-align: center;">Image Details</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Image Time</td>
+                  <td>00:300</td>
+                </tr>
+                <tr>
+                  <td>Image Dimension</td>
+                  <td>984 * 1074</td>
+                </tr>
+                <tr>
+                  <td>Image Type</td>
+                  <td>TIR</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-10 col-sm-10">
+
+        </div>
+        <div class="col-md-1 col-sm-6">
+          <button class="btn btn-primary" (click)="clearCanvas()">Clear</button>
+        </div>
+        <div class="col-md-1 col-sm-6">
+          <button class="btn btn-primary" (click)="toggleWorkFlow()">Toggle</button>
+        </div>
+      </div>
+    </div>
+    <div class="card shadow p-3 mb-5 bg-white rounded" *ngIf="showWorkFlow1==false">
+      <!-- ROW 1: Title Row -->
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+          <h2 style="text-align: center;">Cloud Analytics</h2>
+          <h6 style="text-align: center;">Using Mask RCNN for Detection and CNN-LSTMs for Motion Prediction</h6>
+          <p style="text-align: center;">Cloud Playground: {{cloudTifPath}}</p>
+          <hr/>
+        </div>
+      </div>
+      <!-- ROW 2: Select Cloud Detection Algorithm -->
+      <!-- <div class="row">
+        <div class="col-md-12 col-sm-12">
+          <label>
+            Select the detection algorithm you want to visualize:
+          </label>
+          <select [(ngModel)]="detectionAlgorithm" class="form-control" id="detectionAlgorithm" name="detectionAlgorithm" (ngModelChange)="selectDetectionAlgo()">
+            <option ngValue="kmeans.png">K-Means</option>
+            <option ngValue="mask_rcnn.png">Mask RCNN</option>
+          </select>
+        </div>
+      </div>
+      <br/> -->
+      <!-- ROW 3: Data -->
+      <div class="row">
+        <!-- COLUMN 1: Display Image -->
+        <div class="col-md-6 col-sm-12">
+          <p class="card-body">
+            The below image visualizes the bounding regions for the clouds identified in the image by the Mask RCNN model.
+            Each region of interest (cloud) is also annotated with a confidence score, essentially identifying the confidence
+            with which that region is marked as a cloud.
+          </p>
+          <img [src]="maskOutput" width="563" height="382" class="img-fluid" id="workflow2Elem" #workflow2Elem>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <p class="card-body">
+            The below GIF visualizes the motion of the cloud predicted via the CNN-LSTM model. The model generates the images
+            identifying cloud motion for next 4 frames.
+          </p>
+          <img [src]="gifPath" width="563" height="382" class="img-fluid">
+        </div>
+      </div>
+      <!-- <div class="row">
+        <div class="col-md-1">
+
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col" style="text-align: center;">Cloud</th>
+                <th scope="col" style="text-align: center;">CoM Co-ordinates</th>
+                <th scope="col" style="text-align: center;">Type</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let output of response.mask">
+                <td scope="row">{{output[0]}}</td>
+                <td>({{output[2]}},{{output[3]}})</td>
+                <td>{{output[4]}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div> -->
+      <div class="row">
+        <div class="col-md-11 col-sm-11">
+
+        </div>
+        <div class="col-md-1 col-sm-1">
+          <button class="btn btn-primary" (click)="toggleWorkFlow()">Toggle</button>
+        </div>
+      </div>
+    </div>
+</div>
