@@ -1,6 +1,8 @@
 ﻿
  
- This project was developed under the guidance of ISRO at the finale of the Smart India Hackathon, 2020, in a group of 6. Original repository link is [here](https://github.com/manandoshi1607/NM373_ParyavaranAI).
+This project was developed under the guidance of ISRO at the finale of the Smart India Hackathon, 2020, in a group of 6. Original repository link is [here](https://github.com/manandoshi1607/NM373_ParyavaranAI).
+ 
+The original dataset of geotiff images, as well as most of the processed images have been removed from the repository, bar a few images used for representational purposes. Those seeking to replicate the repository can access and download the INSAT-3D images at [https://www.mosdac.gov.in/](https://www.mosdac.gov.in/).
 
  
  
