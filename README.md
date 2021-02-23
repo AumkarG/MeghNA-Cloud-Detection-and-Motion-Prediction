@@ -1,4 +1,10 @@
-﻿<img src = "https://github.com/manandoshi1607/NM373_ParyavaranAI/blob/master/docs/isro.jpg" height="400" width="600">
+﻿
+ 
+ This project was developed under the guidance of ISRO at the finale of the Smart India Hackathon, 2020, in a group of 6. Original repository link is [![here](https://github.com/manandoshi1607/NM373_ParyavaranAI).
+
+ 
+ 
+ <img src = "https://github.com/manandoshi1607/NM373_ParyavaranAI/blob/master/docs/isro.jpg" height="400" width="600">
 
 # Team 11008, ParyavaranAI
 ## MeghNA - Megh Nowcasting and Analytics
